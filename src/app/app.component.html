@@ -3,14 +3,16 @@
   <h1>{{title}}</h1>
   <h2>My Heroes</h2>
     <ul class="tasks">
-      <li *ngFor='let task of tasks'>
-        <span class='badge'>{{task.id}}</span><span class='task_name'>{{task.name}}</span>
+      <li *ngFor='let task of tasks' (click)="onSelect(task)" [class.selected]="hero === selectedHero">
+        <span class='badge'>{{task.id}}</span>{{task.name}}
       </li>
     </ul>
-  <h2>Current Task: {{task.name}}</h2>
-  <div><label>id: </label>{{task.id}}</div>
-  <div>
-    <label>name: </label>
-    <input [(ngModel)]="task.name" placeholder="name">
+  <div *ngIf="selectedTask">
+    <h2>Current Task: {{selectedTask.name}}</h2>
+    <div><label>id: </label>{{selectedTask.id}}</div>
+    <div>
+      <label>name: </label>
+      <input [(ngModel)]="selectedTask.name" placeholder="name">
+    </div>
   </div>
 </div>

@@ -19,8 +19,8 @@ const TASKS: Task[] = [
 export class AppComponent {
   title = 'Task Manager';
   tasks = TASKS;
-  task: Task = {
-    id: 1,
-    name: 'Add tasks to manage'
+  selectedTask: Task;
+  onSelect(task: Task): void {
+    this.selectedTask = task;
   };
 }
