@@ -1,9 +1,5 @@
 import { Component } from '@angular/core';
-
-export class Task {
-  id: number;
-  name: string;
-}
+import { Task } from './task';
 
 const TASKS: Task[] = [
   { id: 11, name: 'ng4 app' },

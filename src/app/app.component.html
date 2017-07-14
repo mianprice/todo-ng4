@@ -2,17 +2,10 @@
 <div style="text-align:center">
   <h1>{{title}}</h1>
   <h2>My Heroes</h2>
-    <ul class="tasks">
-      <li *ngFor='let task of tasks' (click)="onSelect(task)" [class.selected]="hero === selectedHero">
-        <span class='badge'>{{task.id}}</span>{{task.name}}
-      </li>
-    </ul>
-  <div *ngIf="selectedTask">
-    <h2>Current Task: {{selectedTask.name}}</h2>
-    <div><label>id: </label>{{selectedTask.id}}</div>
-    <div>
-      <label>name: </label>
-      <input [(ngModel)]="selectedTask.name" placeholder="name">
-    </div>
-  </div>
+  <ul class="tasks">
+    <li *ngFor='let task of tasks' (click)="onSelect(task)" [class.selected]="hero === selectedHero">
+      <span class='badge'>{{task.id}}</span>{{task.name}}
+    </li>
+  </ul>
+  <task-detail [task]="selectedTask"></task-detail>
 </div>
