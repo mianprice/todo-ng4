@@ -5,7 +5,7 @@ import { TASKS } from './mock-tasks';
 
 @Injectable()
 export class TaskService {
-  getTasks(): Task[] {
-    return TASKS;
+  getTasks(): Promise<Task[]> {
+    return Promise.resolve(TASKS);
   } //stub
 }
