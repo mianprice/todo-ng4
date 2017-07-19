@@ -1,32 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { Task } from './task';
-import { TaskService } from './task.service';
+import { Component } from '@angular/core';
+import { RouterModule }   from '@angular/router';
 
-
-const TASKS: Task[] = [
-  { id: 11, name: 'ng4 app' },
-  { id: 12, name: 'acquisition pipeline app' },
-  { id: 13, name: '3D 2048' }
-];
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  providers: [TaskService]
+  selector: 'my-app',
+  template: `
+    <h1>{{title}}</h1>
+    <nav>
+     <a routerLink="/dashboard">Dashboard</a>
+     <a routerLink="/tasks">Tasks</a>
+   </nav>
+    <router-outlet></router-outlet>
+  `
 })
-export class AppComponent implements OnInit {
-  constructor(private taskService: TaskService) { }
-  title = 'Task Manager';
-  tasks: Task[];
-  selectedTask: Task;
-  onSelect(task: Task): void {
-    this.selectedTask = task;
-  };
-  getTasks(): void {
-    this.taskService.getTasks().then(tasks => this.tasks = tasks);
-  }
-  ngOnInit(): void {
-    this.getTasks();
-  }
+export class AppComponent {
+  title = 'NG4 Todo';
 }
