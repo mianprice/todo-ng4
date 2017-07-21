@@ -9,25 +9,13 @@ import { TaskDetailComponent } from './task-detail.component';
 import { TaskService } from './task.service';
 import { DashboardComponent } from './dashboard.component';
 
+import { AppRoutingModule } from './app-routing.module';
+
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot([
-      {
-        path: '',
-        redirectTo: '/dashboard',
-        pathMatch: 'full'
-      },
-      {
-        path: 'tasks',
-        component: TasksComponent
-      },
-      {
-        path: 'dashboard',
-        component: DashboardComponent
-      }
-    ])
+    AppRoutingModule
   ],
   declarations: [
     AppComponent,
